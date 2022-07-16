@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('matchs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('local_team_id')->unsigned();
-            $table->bigInteger('visitor_team_id')->unsigned();
+            $table->bigInteger('id_local_team_in_matchs')->unsigned();
+            $table->bigInteger('id_visitor_team_in_matchs')->unsigned();
             $table->timestamps();
-            $table->foreign('local_team_id')
+            $table->foreign('id_local_team_in_matchs')
                     ->references('id')
                     ->on('teams')
                     ->onCascade('delete');
-            $table->foreign('visitor_team_id')
+            $table->foreign('id_visitor_team_in_matchs')
                     ->references('id')
                     ->on('teams')
                     ->onCascade('delete');
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('matchs');
     }
 };

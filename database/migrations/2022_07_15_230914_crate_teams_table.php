@@ -11,14 +11,14 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up() 
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('club_id')->unsigned();
-            $table->string('name');
+            $table->bigInteger('id_club_in_teams')->unsigned();
+            $table->string('name_team');
             $table->timestamps();
-            $table->foreign('club_id')
+            $table->foreign('id_club_in_teams')
                     ->references('id')
                     ->on('clubs')
                     ->onDelete('cascade');
@@ -26,12 +26,12 @@ return new class extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migrations. 
      *
      * @return void
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('teams');
     }
 };

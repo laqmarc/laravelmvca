@@ -4,42 +4,34 @@ namespace App\Http\Controllers;
 use App\Models\Club;
 use App\Models\Team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TeamController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $teams = Team::orderby('id', 'desc')->paginate();
-        
-        
-        $clubs = Team::join('clubs','teams.club_id','=','clubs.id')
-        ->select('teams.id as current_club_id','teams.name as name','clubs.name as name')
-        ->distinct()
-        ->get();
 
-        return view('team.index', compact('teams', 'clubs'))
-        ->with('clubs', $clubs);
+        $teams = DB::table('teams')
+        ->join('clubs','clubs.id', '=', 'teams.id_club_in_teams')
+        ->select('teams.*', 'clubs.name_club')
+        ->get();
+        
+        print($teams);
+
+
+
+        return view('team.index', compact('teams'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create(Club $clubs)
     {
         $teams= Team::all();
         $clubs = Club::all();
         
-        // echo 'clubs';
-        // dd($clubs);
-        // echo 'teams';
-        // dd($teams);
+        //  echo 'clubs';
+        //  dd($clubs);
+        //  echo 'teams';
+        //  dd($teams);
 
         return view('team.create', compact('clubs')); 
     }
@@ -47,89 +39,73 @@ class TeamController extends Controller
 
     public function create_teams(Request $request){
         $request->validate([
-            'name' => 'required',
-            'club_id' => 'required'
+            'name_team' => 'required',
+            'id_club_in_teams' => 'required'
         ]);
         
         $teams = new Team();
-        $teams->name = $request->name;
-        $teams->club_id = $request->club_id;
+        $teams->name_team = $request->name_team;
+        $teams->id_club_in_teams = $request->id_club_in_teams;
+        $teams->created_at =date('Y-m-d H:i:s');
         $teams->save();
 
         return redirect()->route('team.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-         return view('teams.show',compact('teams'));        
+         return view('team.show',compact('teams'));        
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
 
-    public function edit(Team $teams)
+    public function edit(Team $team)
     {  
         $clubs= Club::all();    
-        return view('teams.edit', compact('teams','clubs'));
+        $clubs->updated_at = date('Y-m-d H:i:s');
+        var_dump($team);
+
+        return view('team.edit', compact('team','clubs'));
     }
 
     public function store(Request $request){
         // return $request->all();
 
         $request->validate([
-            'name' => 'required',
-            'club_id' => 'required'
+            'name_team' => 'required',
+            'id_club_in_teams' => 'required'
         ]);
 
         $team = new Team();
-        $team->name = $request->name;
-        $team->club_id = $request->club_id;
+
+        //save all the parameters
+
+        $team->name_team = $request->name_team;
+        $team->id_club_in_teams = $request->id_club_in_teams;
+        $team->updated_at = date('Y-m-d H:i:s');
         $team->save();
+
+
         return redirect()->route('teams.index', $team->id);
     }
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
 
 
     public function update(Request $request, Team $teams)
     {
         $request->validate([
-            'name' => 'required|unique:teams,name|max:50',
-            'club' => 'required'
+            'name_team' => 'required',
+            'id_club_in_teams' => 'required'
         ]);
         
-        $teams->club_id = $request->club;
-        $teams->name = $request->name;        
+        $teams->id_club_in_teams = $request->id_club_in_teams;
+        $teams->name_team = $request->name_team;       
+        $teams->updated_at = date('Y-m-d H:i:s');
+ 
         $teams->save();
 
-        return redirect()->route('team.index', $teams);
+        return redirect()->route('teams.index', $teams);
 
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
 
     public function destroy($id)
     {

@@ -1,12 +1,21 @@
 @extends('layouts.template')
 
 @section('contenido')
-<div class="text-center pt-6 pb-6">
-    <h2 class="pb-6 text-5xl">Clubs</h2>
-    <a href="clubs/create" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4">CREATE
-        CLUB</a>
-        <a href="teams/create" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4">CREATE
-            TEAM</a>
+<div class="pt-20 text-center">
+    <a href="clubs" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4">VIEW
+        CLUBS
+    </a>
+    <a href="clubs/create"
+        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4">CREATE
+        CLUB
+    </a>
+    <a href="teams" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4">VIEW
+        TEAMS
+    </a>
+    <a href="teams/create"
+        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4">CREATE
+        TEAM
+    </a>
 </div>
 
 
@@ -58,7 +67,7 @@
     <div class="card m-3 p-3 border-black-700 border max-w-max text-center" style="max-width: 220px;">
         {{-- NICE --}}
         <div class="border border-gray-400 rounded-full h-48 w-48 flex-none bg-cover rounded-t  overflow-hidden"
-            style="background-image: url('/images/clubs/logo-club-05.png')" title="Image - {{ $club->name }}">
+            style="background-image: url('/images/clubs/logo-club-05.png')" title="Image - {{ $club->name_club }}">
             <div class="text-right">
                 <p class="w-4 pr-3 pl-1">
 
@@ -67,7 +76,7 @@
             </div>
         </div>
         {{-- END NICE --}}
-        <div class="text-gray-900 font-bold text-xl mb-16 mt-8">{{ $club->name }}</div>
+        <div class="text-gray-900 font-bold text-xl mb-16 mt-8">{{ $club->name_club }}</div>
         <div class="text-gray-700 text-base relative">
             <form action="{{ route ('clubs.destroy', $club->id) }} " method="POST">
                     <a class="py-2 px-4 rounded absolute left-0 bottom-0" href="clubs/{{ $club->id }}/edit">

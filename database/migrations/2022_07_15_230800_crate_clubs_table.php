@@ -12,10 +12,10 @@ return new class extends Migration
      * @return void
      */
     public function up()
-    {
+    { 
         Schema::create('clubs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('name_club');
             $table->timestamps();
             
         });
