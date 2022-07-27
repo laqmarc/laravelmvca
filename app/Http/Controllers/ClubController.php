@@ -12,7 +12,7 @@ class ClubController extends Controller
     public function index()
     {
         $clubs = Club::all();
-        print($clubs);
+        // print($clubs);
         return view('club.index')->with('clubs',$clubs);
 
     }

@@ -13,4 +13,8 @@ class Team extends Model
         return $this->belongsTo('App\Models\Club');
     }
 
+    public function matchs(){
+        return $this->hasMany('App\Models\Mat');
+    }
+
 }

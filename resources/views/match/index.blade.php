@@ -2,27 +2,30 @@
 
 @section('contenido')
 
-<h2 class="pb-6 text-5xl">Teams</h2>
+<h2 class="pb-6 text-5xl">Matchs</h2>
 
 </div>
 <div class="grid grid-cols-2 md:grid-cols-3">
-    @foreach($teams as $team)
+    @foreach($matchs as $match)
     <div class="card m-3 p-3 border-black-700 border max-w-max text-center" style="max-width: 220px;">
-        <div class="border border-gray-400 rounded-full h-48 w-48 flex-none bg-cover rounded-t  overflow-hidden"
-            style="background-image: url('/images/teams/logo-club-06.png')" title="Image - {{ $team->name_team }}">
+        {{-- <div class="border border-gray-400 rounded-full h-48 w-48 flex-none bg-cover rounded-t  overflow-hidden"
+            style="background-image: url('/images/teams/logo-club-06.png')" title="Image - {{ $match->name_team }}">
             <div class="text-right">
                 <p class="w-4 pr-3 pl-1">
 
-                    {{ $team->id }}
+                    {{ $match->id }}
                 </p>
             </div>
-        </div>
-        <div class="text-gray-900 font-bold text-xl mb-16 mt-8">Team: {{ $team->name_team }}</div>
-            <div class="text-gray-900 font-bold text-xl mb-16 mt-8">Club: {{ $team->name_club}}</div>
-            
+        </div> --}}
+        <div class="text-gray-900 font-bold text-xl">Team Local: {{ $match->id_local_team_in_matchs }}</div>
+            <div class="text-gray-900 font-bold text-xl">Goals: {{ $match->goals_local_team}}</div>
+            <div class="text-gray-900 font-bold text-xl">VS.</div>
+
+            <div class="text-gray-900 font-bold text-xl">Team Visitor: {{ $match->id_visitor_team_in_matchs }}</div>
+            <div class="text-gray-900 font-bold text-xl">Golals: {{ $match->goals_visitor_team}}</div>
             <div class="text-gray-700 text-base relative">
-            <form action="{{ route ('teams.destroy', $team->id) }} " method="POST">
-                    <a class="py-2 px-4 rounded absolute left-0 bottom-0" href="teams/{{ $team->id }}/edit">
+            <form action="{{ route ('match.destroy', $match->id) }} " method="POST">
+                    <a class="py-2 px-4 rounded absolute left-0 bottom-0" href="matchs/{{ $match->id }}/edit">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round"
