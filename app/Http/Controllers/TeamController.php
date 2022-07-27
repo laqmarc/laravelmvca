@@ -29,7 +29,6 @@ class TeamController extends Controller
         return view('team.create', compact('clubs')); 
     }
 
-
     public function create_team(Request $request){
         $request->validate([
             'name_team' => 'required',
@@ -39,7 +38,7 @@ class TeamController extends Controller
         $teams = new Team();
         $teams->name_team = $request->name_team;
         $teams->id_club_in_teams = $request->id_club_in_teams;
-        $teams->created_at =date('Y-m-d H:i:s');
+        $teams->created_at = date('Y-m-d H:i:s');
         $teams->save();
 
         return redirect()->route('teams.index');
