@@ -13,7 +13,7 @@
     @foreach($teams as $team)
     <div class="card m-3 p-3 border-black-700 border max-w-max text-center" style="max-width: 220px;">
         <div class="border border-gray-400 rounded-full h-48 w-48 flex-none bg-cover rounded-t  overflow-hidden"
-            style="background-image: url('/images/clubs/logo-team-05.png')" title="Image - {{ $team->name_team }}">
+            style="background-image: url('/images/teams/logo-club-06.png')" title="Image - {{ $team->name_team }}">
             <div class="text-right">
                 <p class="w-4 pr-3 pl-1">
 

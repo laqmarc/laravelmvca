@@ -18,8 +18,6 @@ class TeamController extends Controller
         
         print($teams);
 
-
-
         return view('team.index', compact('teams'));
     }
 
@@ -27,17 +25,12 @@ class TeamController extends Controller
     {
         $teams= Team::all();
         $clubs = Club::all();
-        
-        //  echo 'clubs';
-        //  dd($clubs);
-        //  echo 'teams';
-        //  dd($teams);
-
+ 
         return view('team.create', compact('clubs')); 
     }
 
 
-    public function create_teams(Request $request){
+    public function create_team(Request $request){
         $request->validate([
             'name_team' => 'required',
             'id_club_in_teams' => 'required'
@@ -49,8 +42,9 @@ class TeamController extends Controller
         $teams->created_at =date('Y-m-d H:i:s');
         $teams->save();
 
-        return redirect()->route('team.index');
+        return redirect()->route('teams.index');
     }
+
 
     public function show($id)
     {
@@ -59,17 +53,17 @@ class TeamController extends Controller
     }
 
 
-    public function edit(Team $team)
-    {  
-        $clubs= Club::all();    
-        $clubs->updated_at = date('Y-m-d H:i:s');
-        var_dump($team);
-
-        return view('team.edit', compact('team','clubs'));
+    public function edit($id, Club $clubs)
+    {
+        $team = Team::findOrFail($id);
+        $clubs = Club::all();
+        print($team);
+        return view('team.edit', compact('team', 'clubs'));
     }
+    
+
 
     public function store(Request $request){
-        // return $request->all();
 
         $request->validate([
             'name_team' => 'required',
@@ -77,40 +71,33 @@ class TeamController extends Controller
         ]);
 
         $team = new Team();
-
-        //save all the parameters
-
         $team->name_team = $request->name_team;
         $team->id_club_in_teams = $request->id_club_in_teams;
         $team->updated_at = date('Y-m-d H:i:s');
         $team->save();
 
-
         return redirect()->route('teams.index', $team->id);
     }
 
 
-    public function update(Request $request, Team $teams)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'name_team' => 'required',
             'id_club_in_teams' => 'required'
         ]);
         
-        $teams->id_club_in_teams = $request->id_club_in_teams;
-        $teams->name_team = $request->name_team;       
-        $teams->updated_at = date('Y-m-d H:i:s');
- 
-        $teams->save();
+        $team = Team::findOrFail($id);
+        $team->name_team = $request->name_team;
+        $team->id_club_in_teams = $request->id_club_in_teams;
+        $team->updated_at = date('Y-m-d H:i:s');
+        $team->save();
 
-        return redirect()->route('teams.index', $teams);
-
+        return redirect()->route('teams.index', $team->id);
     }
 
-    public function destroy($id)
-    {
-        $team = Team::find($id);
-        $team->delete();
+    public function destroy(Team $teams){
+        $teams->delete();
         
         return redirect('/teams');
     }
