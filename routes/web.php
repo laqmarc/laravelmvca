@@ -56,14 +56,12 @@ Route::delete('teams/{teams}/delete' , [TeamController::class, 'destroy'])->name
 
 Route::get('matchs', [MatController::class, 'index'])->name('matchs.index');
 
-// Route::resource('matchs' , 'App\Http\Controllers\MatController'); 
 Route::get('matchs/create', [MatController::class, 'create'])->name('matchs.create');
+
 Route::post('matchs', [MatController::class, 'create_match'])->name('matchs.create_match');
 
-// Route::post('matchs', [MatchController::class, 'create_match'])->name('matchs.create_match');
+Route::get('matchs/{match}/edit',[MatController::class, 'edit'])->name('matchs.edit');
 
-// Route::get('matchs/{match}/edit',[MatchController::class, 'edit'])->name('matchs.edit');
+Route::put('matchs/{match}', [MatController::class, 'update'])->name('matchs.update');
 
-// Route::put('matchs/{match}', [MatchController::class, 'update'])->name('matchs.update');
-
-Route::delete('matchs/{match}/delete' , [MatController::class, 'destroy'])->name('match.destroy');
+Route::delete('matchs/{match}/delete' , [MatController::class, 'destroy'])->name('matchs.destroy');

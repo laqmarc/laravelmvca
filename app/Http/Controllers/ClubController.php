@@ -12,7 +12,7 @@ class ClubController extends Controller
     public function index()
     {
         $clubs = Club::all();
-        // print($clubs);
+
         return view('club.index')->with('clubs',$clubs);
 
     }
@@ -47,13 +47,13 @@ class ClubController extends Controller
         $clubs->created_at = date('Y-m-d H:i:s');
         $clubs->updated_at = date('Y-m-d H:i:s');
         $clubs->save();
+
         return redirect('/clubs');
     }
 
     public function edit($id)
     {
         $club = Club::findOrFail($id);
-                 var_dump($club);
 
         return view('club.edit')->with('club',$club);
 
@@ -74,6 +74,7 @@ class ClubController extends Controller
     {
         $club = Club::findOrFail($id);
         $club->delete();
+        
         return redirect('/clubs');
     }
    

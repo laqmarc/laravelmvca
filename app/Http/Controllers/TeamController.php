@@ -16,8 +16,6 @@ class TeamController extends Controller
         ->select('teams.*', 'clubs.name_club')
         ->get();
         
-        print($teams);
-
         return view('team.index', compact('teams'));
     }
 
@@ -56,7 +54,6 @@ class TeamController extends Controller
     {
         $team = Team::findOrFail($id);
         $clubs = Club::all();
-        print($team);
         return view('team.edit', compact('team', 'clubs'));
     }
     
