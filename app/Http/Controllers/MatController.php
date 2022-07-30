@@ -6,7 +6,6 @@ use App\Models\Club;
 use App\Models\Mat;
 use App\Models\Team;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 class MatController extends Controller
 {
     public function index()

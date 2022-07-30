@@ -19,9 +19,6 @@ use App\Http\Controllers\MatController;
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::resource('clubs' , 'App\Http\Controllers\ClubController');
-// Route::resource('teams' , 'App\Http\Controllers\TeamController'); 
-
 
 //CLUBS
 
