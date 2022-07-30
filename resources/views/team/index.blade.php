@@ -5,7 +5,7 @@
 <h2 class="pb-6 text-5xl">Teams</h2>
 
 </div>
-<div class="grid grid-cols-2 md:grid-cols-3">
+<div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 m-auto justify-self-center">
     @foreach($teams as $team)
     <div class="card m-3 p-3 border-black-700 border max-w-max text-center" style="max-width: 220px;">
         <div class="border border-gray-400 rounded-full h-48 w-48 flex-none bg-cover rounded-t  overflow-hidden"
