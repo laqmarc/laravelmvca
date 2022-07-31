@@ -109,10 +109,11 @@ class MatController extends Controller
         return view('match.create', compact('teams', 'clubs')); 
     }
 
-    public function destroy(Mat $matchs)
+    public function destroy($id)
     {
+        $matchs = Mat::findOrFail($id);
         $matchs->delete();
 
-        return redirect()->route('matchs.index');
+        return redirect()->route('/matchs');
     }
 }

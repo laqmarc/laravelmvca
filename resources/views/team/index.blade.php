@@ -7,7 +7,7 @@
 </div>
 <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 m-auto justify-self-center">
     @foreach($teams as $team)
-    <div class="card m-3 p-3 border-black-700 border max-w-max text-center" style="max-width: 220px;">
+    <div class="card m-3 p-3 bg-white border-black-700 border max-w-max text-center" style="max-width: 220px;">
         <div class="border border-gray-400 rounded-full h-48 w-48 flex-none bg-cover rounded-t  overflow-hidden"
             style="background-image: url('/images/teams/logo-club-06.png')" title="Image - {{ $team->name_team }}">
             <div class="text-right">
@@ -17,8 +17,8 @@
                 </p>
             </div>
         </div>
-        <div class="text-gray-900 font-bold text-xl mb-16 mt-8">Team: {{ $team->name_team }}</div>
-            <div class="text-gray-900 font-bold text-xl mb-16 mt-8">Club: {{ $team->name_club}}</div>
+        <div class="text-gray-900 font-bold text-xl mb-4 mt-4">Team: {{ $team->name_team }}</div>
+            <div class="text-gray-900 font-bold text-xl mb-8 mt-4">Club: {{ $team->name_club}}</div>
             
             <div class="text-gray-700 text-base relative">
             <form action="{{ route ('teams.destroy', $team->id) }} " method="POST">

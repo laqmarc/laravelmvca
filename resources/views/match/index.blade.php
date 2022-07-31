@@ -9,22 +9,22 @@
     <thead>
         <tr>
             <th
-                class="border text-center dark:border-slate-600 font-medium p-4 pl-8 text-slate-400 dark:text-slate-200 text-left">
+                class="border text-center bg-white border-black dark:border-slate-600 font-medium p-4 pl-8 text-slate-400 dark:text-slate-200 text-left">
                 Local Team</th>
             <th
-                class="border text-center dark:border-slate-600 font-medium p-4 pl-8 text-slate-400 dark:text-slate-200 text-left">
+                class="border text-center bg-white border-black dark:border-slate-600 font-medium p-4 pl-8 text-slate-400 dark:text-slate-200 text-left">
                 Goals</th>
             <th
-                class="border text-center dark:border-slate-600 font-medium p-4 pl-8 text-slate-400 dark:text-slate-200 text-left">
+                class="border text-center bg-white border-black dark:border-slate-600 font-medium p-4 pl-8 text-slate-400 dark:text-slate-200 text-left">
                 vs</th>
             <th
-                class="border text-center dark:border-slate-600 font-medium p-4 pl-8 text-slate-400 dark:text-slate-200 text-left">
+                class="border text-center bg-white border-black dark:border-slate-600 font-medium p-4 pl-8 text-slate-400 dark:text-slate-200 text-left">
                 Goals</th>
             <th
-                class="border text-center dark:border-slate-600 font-medium p-4 pl-8 text-slate-400 dark:text-slate-200 text-left">
+                class="border text-center bg-white border-black dark:border-slate-600 font-medium p-4 pl-8 text-slate-400 dark:text-slate-200 text-left">
                 Visitor Team</th>
             <th
-                class="border text-center dark:border-slate-600 font-medium p-4 pl-8 text-slate-400 dark:text-slate-200 text-left">
+                class="border text-center bg-white border-black dark:border-slate-600 font-medium p-4 pl-8 text-slate-400 dark:text-slate-200 text-left">
                 X</th>
         </tr>
     </thead>
@@ -32,17 +32,17 @@
        
         @foreach($matchs as $match)
         <tr>
-            <td class="border text-center border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
+            <td class="border text-center border-black border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
                 {{ $match->local_team }}</td>
-            <td class="border text-center border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
+            <td class="border text-center border-black border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
                 {{ $match->goals_local_team}}</td>
-            <td class="border text-center border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">vs
+            <td class="border text-center border-black border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">vs
             </td>
-            <td class="border text-center border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
+            <td class="border text-center border-black border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
                 {{ $match->goals_visitor_team}}</td>
-            <td class="border text-center border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
+            <td class="border text-center border-black border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
                 {{ $match->visitor_team }}</td>
-            <td class="border text-center border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
+            <td class="border text-center border-black border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
                 {{-- <form action="{{ route ('matchs.destroy', $match->id) }} " method="POST">
                     <a class="" href="matchs/{{ $match->id }}/edit">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -69,7 +69,7 @@
 </table>
 
 
-{{-- <div class="card m-3 p-3 border text-centerlack-700 border max-w-max text-center"> --}}
+{{-- <div class="card m-3 p-3 border text-center border-blacklack-700 border max-w-max text-center"> --}}
     {{-- <div class="border border-gray-400 rounded-full h-48 w-48 flex-none bg-cover rounded-t  overflow-hidden"
             style="background-image: url('/images/teams/logo-club-06.png')" title="Image - {{ $match->name_team }}">
     <div class="text-right">

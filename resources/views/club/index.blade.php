@@ -5,7 +5,7 @@
 
 <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 m-auto justify-self-center">
     @foreach($clubs as $club)
-    <div class="card m-3 p-3 border-black-700 border max-w-max text-center self-auto" style="max-width: 220px;">
+    <div class="card bg-white m-3 p-3 border-black-700 border max-w-max text-center self-auto" style="max-width: 220px;">
         {{-- NICE --}}
         <div class="border border-gray-400 rounded-full h-48 w-48 flex-none bg-cover rounded-t  overflow-hidden"
             style="background-image: url('/images/clubs/logo-club-05.png')" title="Image - {{ $club->name_club }}">

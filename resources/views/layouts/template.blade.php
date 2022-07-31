@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DACLUB</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ url('/css/style.css') }}" />
 </head>
 
@@ -49,7 +48,7 @@
 
     </span>
 
-    <div class="">
+    <div class="hrader">
 
         <a href="/">
             <h1>DACLUB</h1>
