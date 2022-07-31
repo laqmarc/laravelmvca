@@ -15,9 +15,11 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="/clubs">Clubs</a>
         <a href="/clubs/create">Create Clubs</a>
+        <hr>
         <a href="/teams">Teams</a>
         <a href="/teams/create">Create Teams</a>
-        <a href="/matchs">See Matchs</a>
+        <hr>
+        <a href="/matchs">Matchs</a>
         <a href="/matchs/create">Create Matchs</a>
     </div>
 
