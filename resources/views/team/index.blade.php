@@ -1,7 +1,10 @@
 @extends('layouts.template')
 
 @section('contenido')
-
+<div class="flex justify-end">
+    <a href="{{ route('teams.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Create Team</a>
+</div>
 <h2 class="pb-6 text-5xl">Teams</h2>
 
 </div>

@@ -19,6 +19,8 @@ return new class extends Migration
                 $table->bigInteger('id_visitor_team_in_matchs')->unsigned();
                 $table->bigInteger('goals_local_team')->unsigned();
                 $table->bigInteger('goals_visitor_team')->unsigned();
+                $table->bigInteger('points_local_team')->unsigned();
+                $table->bigInteger('points_visitor_team')->unsigned();
                 $table->timestamps();
                 $table->foreign('id_local_team_in_matchs')
                         ->references('id')

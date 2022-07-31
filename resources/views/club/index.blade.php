@@ -2,6 +2,10 @@
 
 @section('contenido')
 
+<div class="flex justify-end">
+    <a href="{{ route('clubs.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Create Club</a>
+</div>
 
 <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 m-auto justify-self-center">
     @foreach($clubs as $club)

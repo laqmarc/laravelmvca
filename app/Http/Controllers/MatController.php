@@ -46,14 +46,33 @@ class MatController extends Controller
 
         ]);
 
-        $goals = rand(0,5);
+        $goalsA = rand(0,5);
         $goalsB = rand(0,5);
+        $pointsA = 0;
+        if($goalsA > $goalsB){
+            $pointsA = 3;
+        }elseif($goalsA < $goalsB){
+            $pointsA = 0;
+        }else{
+            $pointsA = 1;
+        }
+
+        $pointsB = 0;
+        if($goalsB > $goalsA){
+            $pointsB = 3;
+        }elseif($goalsB < $goalsA){
+            $pointsB = 0;
+        }else{
+            $pointsB = 1;
+        }
 
         $match = new Mat();
         $match->id_local_team_in_matchs = $request->id_local_team_in_matchs;
         $match->id_visitor_team_in_matchs = $request->id_visitor_team_in_matchs;
-        $match->goals_local_team = $goals;
+        $match->goals_local_team = $goalsA;
         $match->goals_visitor_team = $goalsB;
+        $match->points_local_team = $pointsA;
+        $match->points_visitor_team = $pointsB;
         $match->created_at = date('Y-m-d H:i:s');
         $match->save();
         

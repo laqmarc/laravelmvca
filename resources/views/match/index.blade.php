@@ -1,7 +1,10 @@
 @extends('layouts.template')
 
 @section('contenido')
-
+<div class="flex justify-end">
+    <a href="{{ route('matchs.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Create Match</a>
+</div>
 <h2 class="pb-6 text-5xl">Matchs</h2>
 {{-- create a table with the following columns: --}}
 
