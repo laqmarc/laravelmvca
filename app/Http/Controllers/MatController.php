@@ -20,7 +20,7 @@ class MatController extends Controller
         ->join('teams as visitor_team','id_visitor_team_in_matchs','=','visitor_team.id')
         ->select('mats.id as id_match','mats.goals_local_team as goals_local_team',
         'mats.goals_visitor_team as goals_visitor_team','teams.name_team as local_team',
-        'visitor_team.name_team as visitor_team')
+        'visitor_team.name_team as visitor_team','mats.points_local_team as points_local_team','mats.points_visitor_team as points_visitor_team')
         ->orderBy('id_match', 'asc')
         ->get();
 
@@ -128,11 +128,10 @@ class MatController extends Controller
         return view('match.create', compact('teams', 'clubs')); 
     }
 
-    public function destroy($id)
+    public function destroy(Mat $match)
     {
-        $matchs = Mat::findOrFail($id);
-        $matchs->delete();
-
-        return redirect()->route('/matchs');
-    }
+        $match->delete();
+        return redirect('/matchs');    }
+    
+   
 }

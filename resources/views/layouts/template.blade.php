@@ -21,6 +21,7 @@
         <hr>
         <a href="/matchs">Matchs</a>
         <a href="/matchs/create">Create Matchs</a>
+        
     </div>
 
     <!-- Use any element to open the sidenav -->
@@ -53,7 +54,7 @@
     <div class="hrader">
 
         <a href="/">
-            <h1>DACLUB</h1>
+            <h1 class="tittt">DACLUB</h1>
         </a>
     </div>
 
