@@ -1,14 +1,14 @@
 @extends('layouts.template')
 
 @section('contenido')
-<div class="flex justify-end">
+<div class="fixed right-0 top-2">
     <a href="{{ route('teams.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         Create Team</a>
 </div>
 <h2 class="pb-6 text-5xl">Teams</h2>
 
 </div>
-<div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 m-auto justify-self-center">
+<div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 m-auto justify-center">
     @foreach($teams as $team)
     <div class="card m-3 p-3 bg-white border-black-700 border max-w-max text-center" style="max-width: 220px;">
         <div class="border border-gray-400 rounded-full h-48 w-48 flex-none bg-cover rounded-t  overflow-hidden"

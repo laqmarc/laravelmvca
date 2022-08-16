@@ -8,10 +8,9 @@ use App\Models\Team;
 use Illuminate\Http\Request;
 class MatController extends Controller
 {
+    
     public function index()
-    {
-
-
+    { 
 
         $clubs = Club::all();
         $matchs = Mat::orderBy('id', 'desc')->paginate();
@@ -35,34 +34,40 @@ class MatController extends Controller
         return view('match.create', compact('teams', 'clubs')); 
     }
    
-
-
     public function create_match(Request $request)
     {
         $request->validate([
             'id_local_team_in_matchs' => 'required',
             'id_visitor_team_in_matchs' => 'required',
-
-
         ]);
 
         $goalsA = rand(0,5);
         $goalsB = rand(0,5);
         $pointsA = 0;
-        if($goalsA > $goalsB){
+        if($goalsA > $goalsB)
+        {
             $pointsA = 3;
-        }elseif($goalsA < $goalsB){
+        }
+        elseif($goalsA < $goalsB)
+        {
             $pointsA = 0;
-        }else{
+        }
+        else
+        {
             $pointsA = 1;
         }
 
         $pointsB = 0;
-        if($goalsB > $goalsA){
+        if($goalsB > $goalsA)
+        {
             $pointsB = 3;
-        }elseif($goalsB < $goalsA){
+        }
+        elseif($goalsB < $goalsA)
+        {
             $pointsB = 0;
-        }else{
+        }
+        else
+        {
             $pointsB = 1;
         }
 
@@ -80,39 +85,69 @@ class MatController extends Controller
     }
 
     public function update(Request $request, Mat $match)
+
+        {
+        $request->validate([
+            'id_local_team_in_matchs' => 'required',
+            'id_visitor_team_in_matchs' => 'required',
+        ]);
+
+        $goalsA = rand(0,5);
+        $goalsB = rand(0,5);
+        $pointsA = 0;
+        if($goalsA > $goalsB)
+        {
+            $pointsA = 3;
+        }
+        elseif($goalsA < $goalsB)
+        {
+            $pointsA = 0;
+        }
+        else
+        {
+            $pointsA = 1;
+        }
+
+        $pointsB = 0;
+        if($goalsB > $goalsA)
+        {
+            $pointsB = 3;
+        }
+        elseif($goalsB < $goalsA)
+        {
+            $pointsB = 0;
+        }
+        else
+        {
+            $pointsB = 1;
+        }
+
+        // $match = new Mat();
+        $match->id_local_team_in_matchs = $request->id_local_team_in_matchs;
+        $match->id_visitor_team_in_matchs = $request->id_visitor_team_in_matchs;
+        $match->goals_local_team = $goalsA;
+        $match->goals_visitor_team = $goalsB;
+        $match->points_local_team = $pointsA;
+        $match->points_visitor_team = $pointsB;
+        // $match->created_at = date('Y-m-d H:i:s');
+        $match->updated_at = date('Y-m-d H:i:s');
+        $match->save();
+        
+        return redirect()->route('matchs.index');
+    }
+   
+   
+    public function store(Request $request, Mat $match)
     {
         $request->validate([
             'id_local_team_in_matchs' => 'required',
             'id_visitor_team_in_matchs' => 'required',
-            'goals_local_team' => 'required',
-            'goals_visitor_team' => 'required'
+
         ]);
 
         $match = Mat::findOrFail($match->id);
         $match->id_local_team_in_matchs = $request->id_local_team_in_matchs;
         $match->id_visitor_team_in_matchs = $request->id_visitor_team_in_matchs;
-        $match->goals_local_team = $request->goals_local_team;
-        $match->goals_visitor_team = $request->goals_visitor_team;
-        $match->save();
-
-        return redirect()->route('matchs.index');
-    }
-   
-   
-    public function store(Request $request)
-    {
-        $request->validate([
-            'id_local_team_in_matchs' => 'required',
-            'id_visitor_team_in_matchs' => 'required',
-            'goals_local_team' => 'required',
-            'goals_visitor_team' => 'required'
-        ]);
-
-        $match = new Mat();
-        $match->id_local_team_in_matchs = $request->id_local_team_in_matchs;
-        $match->id_visitor_team_in_matchs = $request->id_visitor_team_in_matchs;
-        $match->goals_local_team = $request->goals_local_team;
-        $match->goals_visitor_team = $request->goals_visitor_team;
         $match->created_at = date('Y-m-d H:i:s');
         $match->updated_at = date('Y-m-d H:i:s');
         $match->save();
@@ -120,18 +155,18 @@ class MatController extends Controller
         return redirect()->route('matchs.index');
     }
 
-   
-    public function edit (Team $teams)
+    public function edit($id, Team $teams)
     {
+        $match = Mat::findOrFail($id);
         $teams = Team::all();
-        $clubs = Club::all();
-        return view('match.create', compact('teams', 'clubs')); 
+        return view('match.edit', compact('teams', 'match'));
     }
+    
 
     public function destroy(Mat $match)
     {
         $match->delete();
-        return redirect('/matchs');    }
+        return redirect('/matchs');    
+    }
     
-   
 }

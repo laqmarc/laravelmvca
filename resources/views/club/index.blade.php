@@ -2,12 +2,12 @@
 
 @section('contenido')
 
-<div class="flex justify-end">
+<div class="fixed right-0 top-2">
     <a href="{{ route('clubs.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         Create Club</a>
 </div>
 
-<div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 m-auto justify-self-center">
+<div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 m-auto justify-center">
     @foreach($clubs as $club)
     <div class="card bg-white m-3 p-3 border-black-700 border max-w-max text-center self-auto" style="max-width: 220px;">
         {{-- NICE --}}
@@ -44,7 +44,4 @@
         </div>
     </div>
     @endforeach
-</div>
-
-
 @endsection

@@ -21,7 +21,7 @@
         <hr>
         <a href="/matchs">Matchs</a>
         <a href="/matchs/create">Create Matchs</a>
-        
+
     </div>
 
     <!-- Use any element to open the sidenav -->
@@ -29,7 +29,7 @@
         <svg class="inline-svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="22px" viewBox="0 0 32 22.5"
             enable-background="new 0 0 32 22.5" xml:space="preserve">
-            <title>Mobile Menu</title>
+            <title>DACLUB MENU</title>
             <g class="svg-menu-toggle">
 
                 <path class="bar" d="M20.945,8.75c0,0.69-0.5,1.25-1.117,1.25H3.141c-0.617,0-1.118-0.56-1.118-1.25l0,0
@@ -61,7 +61,9 @@
     <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
     <div id="main">
         <div class="container m-auto">
-            @yield('contenido')
+            {{-- <div style="justify-content: center;"> --}}
+                @yield('contenido')
+            {{-- </div> --}}
         </div>
     </div>
 
