@@ -22,8 +22,6 @@ class ClubController extends Controller
         return view('club.create');
     }
 
-
-
     public function create_club(Request $request){
         $request->validate([
             'name_club' => 'required',
@@ -37,8 +35,6 @@ class ClubController extends Controller
 
         return redirect()->route('clubs.index');
     }
-
-
 
     public function store(Request $request)
     {

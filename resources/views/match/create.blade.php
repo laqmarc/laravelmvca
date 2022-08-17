@@ -21,8 +21,6 @@
     </div>
     <a href="/matchs"  class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-4">Cancel</a>
     <button type="submit"  class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">CREATE</button>
-
 </form>
-
 
 @endsection
