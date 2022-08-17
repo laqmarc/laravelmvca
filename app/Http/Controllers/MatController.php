@@ -122,14 +122,12 @@ class MatController extends Controller
             $pointsB = 1;
         }
 
-        // $match = new Mat();
         $match->id_local_team_in_matchs = $request->id_local_team_in_matchs;
         $match->id_visitor_team_in_matchs = $request->id_visitor_team_in_matchs;
         $match->goals_local_team = $goalsA;
         $match->goals_visitor_team = $goalsB;
         $match->points_local_team = $pointsA;
         $match->points_visitor_team = $pointsB;
-        // $match->created_at = date('Y-m-d H:i:s');
         $match->updated_at = date('Y-m-d H:i:s');
         $match->save();
         

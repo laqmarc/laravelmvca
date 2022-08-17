@@ -2,7 +2,7 @@
 
 @section('contenido')
 
-<div class="fixed right-0 top-2">
+<div class="fixed right-1 top-3">
     <a href="{{ route('clubs.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         Create Club</a>
 </div>
@@ -10,17 +10,14 @@
 <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 m-auto justify-center">
     @foreach($clubs as $club)
     <div class="card bg-white m-3 p-3 border-black-700 border max-w-max text-center self-auto" style="max-width: 220px;">
-        {{-- NICE --}}
         <div class="border border-gray-400 rounded-full h-48 w-48 flex-none bg-cover rounded-t  overflow-hidden"
             style="background-image: url('/images/clubs/logo-club-05.png')" title="Image - {{ $club->name_club }}">
             <div class="text-right">
                 <p class="w-4 pr-3 pl-1">
-
                     {{ $club->id }}
                 </p>
             </div>
         </div>
-        {{-- END NICE --}}
         <div class="text-gray-900 font-bold text-xl mb-16 mt-8">{{ $club->name_club }}</div>
         <div class="text-gray-700 text-base relative">
             <form action="{{ route ('clubs.destroy', $club->id) }} " method="POST">

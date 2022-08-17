@@ -10,7 +10,6 @@ class TeamController extends Controller
 {
     public function index()
     {
-
         $teams = DB::table('teams')
         ->join('clubs','clubs.id', '=', 'teams.id_club_in_teams')
         ->select('teams.*', 'clubs.name_club')
@@ -42,13 +41,11 @@ class TeamController extends Controller
         return redirect()->route('teams.index');
     }
 
-
     public function show($id)
     {
          return view('team.show',compact('teams'));        
 
     }
-
 
     public function edit($id, Club $clubs)
     {
@@ -57,8 +54,6 @@ class TeamController extends Controller
         return view('team.edit', compact('team', 'clubs'));
     }
     
-
-
     public function store(Request $request){
 
         $request->validate([
@@ -74,7 +69,6 @@ class TeamController extends Controller
 
         return redirect()->route('teams.index', $team->id);
     }
-
 
     public function update(Request $request, $id)
     {
