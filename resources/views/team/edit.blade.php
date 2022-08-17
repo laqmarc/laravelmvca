@@ -11,16 +11,15 @@
             @method('PUT')
             <div class="form">
                 <p>Name of the team:</p>
-
-                <input type="text" name="name_team" id="name_team" tabindex="1" value="{{ $team->name_team }} @selected(old('team') == $team)"
+                <input type="text" name="name_team" id="name_team" tabindex="1"
+                    value="{{ $team->name_team }} @selected(old('team') == $team)"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <p>Select the Club:</p>
-
                 <select name="id_club_in_teams" id="id_club_in_teams"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     value="{{($team->id_club_in_teams)}}">
                     @foreach($clubs as $club)
-                    <option value="{{$club->id}}" @selected(old('club') == $club) >{{$club->name_club}}</option>
+                    <option value="{{$club->id}}" @selected(old('club')==$club)>{{$club->name_club}}</option>
                     @endforeach
                 </select>
             </div>
