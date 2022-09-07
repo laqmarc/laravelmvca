@@ -34,6 +34,12 @@ class MatController extends Controller
         return view('match.create', compact('teams', 'clubs')); 
     }
    
+    protected function generateGoals(){
+        $goals = rand(0,5);
+        return $goals;
+    }
+    
+
     public function create_match(Request $request)
     {
         $request->validate([
@@ -41,34 +47,25 @@ class MatController extends Controller
             'id_visitor_team_in_matchs' => 'required',
         ]);
 
-        $goalsA = rand(0,5);
-        $goalsB = rand(0,5);
+        $goalsA = $this->generateGoals();
+        $goalsB = $this->generateGoals();
         $pointsA = 0;
-        if($goalsA > $goalsB)
+        $pointsB = 0;
+       
+         if($goalsA > $goalsB)
         {
             $pointsA = 3;
+            $pointsB = 0;
         }
         elseif($goalsA < $goalsB)
         {
             $pointsA = 0;
+            $pointsB = 3;
         }
         else
         {
             $pointsA = 1;
-        }
-
-        $pointsB = 0;
-        if($goalsB > $goalsA)
-        {
-            $pointsB = 3;
-        }
-        elseif($goalsB < $goalsA)
-        {
             $pointsB = 0;
-        }
-        else
-        {
-            $pointsB = 1;
         }
 
         $match = new Mat();
@@ -92,34 +89,25 @@ class MatController extends Controller
             'id_visitor_team_in_matchs' => 'required',
         ]);
 
-        $goalsA = rand(0,5);
-        $goalsB = rand(0,5);
+        $goalsA = $this->generateGoals();
+        $goalsB = $this->generateGoals();
         $pointsA = 0;
-        if($goalsA > $goalsB)
+        $pointsB = 0;
+       
+         if($goalsA > $goalsB)
         {
             $pointsA = 3;
+            $pointsB = 0;
         }
         elseif($goalsA < $goalsB)
         {
             $pointsA = 0;
+            $pointsB = 3;
         }
         else
         {
             $pointsA = 1;
-        }
-
-        $pointsB = 0;
-        if($goalsB > $goalsA)
-        {
-            $pointsB = 3;
-        }
-        elseif($goalsB < $goalsA)
-        {
             $pointsB = 0;
-        }
-        else
-        {
-            $pointsB = 1;
         }
 
         $match->id_local_team_in_matchs = $request->id_local_team_in_matchs;
